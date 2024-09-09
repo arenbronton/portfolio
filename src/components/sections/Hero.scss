@@ -1,0 +1,159 @@
+.hero-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 600px;
+}
+
+.hero {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .hero-title {
+        h1 {
+            font-size: 3.5rem;
+        }
+
+        p {
+            font-size: 1.15rem;
+            font-weight: bold;
+        }
+
+        & img {
+            width: 1.5rem;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        animation: slide-right ease 1s;
+
+        @keyframes slide-right {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.techstack-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    width: 40%;
+
+    animation: slide-left ease 1s;
+
+    @keyframes slide-left {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50%;
+        height: 15px;
+        border: 2px solid #777;
+        border-bottom: none;
+        border-radius: 5px 5px 0 0;
+    }
+
+    &::after {
+        content: 'Tech Stack';
+        position: absolute;
+        top: -50px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #777;
+        font-weight: bold;
+        font-size: large;
+        text-wrap: nowrap;
+    }
+
+    .techstack {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+
+        position: relative;
+
+        h1 {
+            color: gold;
+        }
+
+        ol {
+            padding: 10px;
+            border-radius: 10px;
+            background: #11111171;
+
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        ol div {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+
+            & img {
+                width: 2rem;
+                filter: drop-shadow(0 0 5px #121212);
+                user-select: none;
+            }
+        }
+    }
+}
+
+.contact-container {
+    margin-top: 10px;
+
+    .contact-button {
+        font-size: x-large;
+        padding: 10px;
+        border-radius: 3px;
+        border: none;
+        background: #1E90FF;
+        cursor: pointer;
+
+        &:hover {
+            filter: brightness(70%)
+        }
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    .hero {
+        flex-direction: column;
+        gap: 50px;
+        width: 85%;
+    }
+
+    .techstack-container {
+        width: 90%;
+        margin-top: 50px;
+
+        &::before {
+            width: calc(100% - 175px);
+        }
+    }
+}

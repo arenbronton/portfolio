@@ -1,0 +1,55 @@
+.home-page {
+    position: relative;
+}
+
+.home-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 40px 40px;
+    background-image:
+    linear-gradient(to right, #77777730 1px, transparent 1px),
+    linear-gradient(to bottom, #77777730 1px, transparent 1px);
+    overflow: hidden;
+
+    z-index: -2;
+
+    animation: fade-in ease 1s;
+
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+}
+
+
+.home-page::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top, transparent, var(--background-color) 1000px, #110f0f);
+    pointer-events: none; /* Ensures that the gradient doesn't block interactions with other elements */
+
+    z-index: -1;
+}
+
+.page-section {
+    margin-bottom: 300px;
+
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+}

@@ -1,0 +1,74 @@
+.projects-container {
+    padding: 20px 0;
+}
+
+.projects {
+    width: 75%;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 20px;
+
+    h1 {
+        font-size: 2.5rem;
+        color: salmon;
+        user-select: none;
+    }
+
+    .projects-grid {
+        width: 75%;
+
+        display: grid;
+        gap: 25px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(1fr, auto-fill);
+
+        .project-panel {
+            width: 100%;
+            height: 300px;
+
+            background: rgba(128, 128, 128, 0.15);
+            backdrop-filter: blur(10px);
+
+            --focus-box-shadow-color: #eeeeee15;
+
+            &:hover {
+                animation: focus ease-in 0.1s;
+                backdrop-filter: blur(0) brightness(175%);
+                box-shadow: 0 0 40px var(--focus-box-shadow-color) inset;
+            }
+
+            @keyframes focus {
+                from {
+                    backdrop-filter: blur(10px);
+                    box-shadow: 0 0 0 var(--focus-box-shadow-color) inset;
+                }
+                to {
+                    backdrop-filter: blur(0) brightness(175%);
+                    box-shadow: 0 0 40px var(--focus-box-shadow-color) inset;
+                }
+            }
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+
+            padding: 10px;
+            border-radius: 10px;
+        }
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    .projects {
+        width: 100%;
+
+        .projects-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+}

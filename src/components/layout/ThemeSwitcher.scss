@@ -1,0 +1,25 @@
+.theme-switcher-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: transparent;
+    border: none;
+    width: 20px;
+    height: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    transition: all ease 0.2s;
+
+    &:hover {
+        transform-origin: center;
+        transform: scale(1.5);
+    }
+
+    img {
+        width: 100%;
+    }
+}
